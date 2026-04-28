@@ -12,20 +12,7 @@ import AdminDelete from "./components/admindelete.jsx";
 import AdminVideo from "./components/adminvideo.jsx";
 import AdminUpdate from "./components/adminupdate.jsx";
 import AdminUpload from "./components/uploadvideo.jsx";
-
-// ── Simple Profile placeholder page ──────────────────────────────────────────
-// Replace this with your real Profile component once you build it.
-function ProfilePage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-[#060712] via-[#071023] to-[#05060a] text-slate-100 flex items-center justify-center">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-10 text-center">
-        <h1 className="text-3xl font-bold text-cyan-300 mb-2">Profile</h1>
-        <p className="text-slate-400">Your profile page is coming soon.</p>
-      </div>
-    </div>
-  );
-}
-// ─────────────────────────────────────────────────────────────────────────────
+import ProfilePage from "./pages/profile.jsx";
 
 export default function App(){
   
