@@ -13,6 +13,20 @@ import AdminVideo from "./components/adminvideo.jsx";
 import AdminUpdate from "./components/adminupdate.jsx";
 import AdminUpload from "./components/uploadvideo.jsx";
 
+// ── Simple Profile placeholder page ──────────────────────────────────────────
+// Replace this with your real Profile component once you build it.
+function ProfilePage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#060712] via-[#071023] to-[#05060a] text-slate-100 flex items-center justify-center">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-10 text-center">
+        <h1 className="text-3xl font-bold text-cyan-300 mb-2">Profile</h1>
+        <p className="text-slate-400">Your profile page is coming soon.</p>
+      </div>
+    </div>
+  );
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function App(){
   
     const {isAuthenticated, loading, user} = useSelector((state)=>state.auth);
@@ -34,20 +48,20 @@ export default function App(){
        <Route path="/login" element={isAuthenticated ? <Navigate to="/"/>:<Login/>}></Route>
        <Route path="/signup" element={isAuthenticated ? <Navigate to="/"/> : <SignUp/>}></Route>
 
+       {/* ── FIX 1: /profile route was missing — caused "No routes matched" error ── */}
+       <Route path="/profile" element={isAuthenticated ? <ProfilePage/> : <Navigate to="/signup"/>}></Route>
+
        <Route path="problem/:problemId" element={isAuthenticated ? <ProblemPage/> : <Navigate to="/signup"/>} ></Route>
 
        {/* admin Panel Details */}
 
-
        {/* 1. Go to admin Panel */}
-
       {user && (
             <Route
           path="/admin"
         element={ isAuthenticated && user?.role === 'admin' ? ( <Admin />) : (<Navigate to="/" />)}></Route>)}
 
         {/* 2. Create Problem */}
-
          {user && (
             <Route
           path="/admin/create"
